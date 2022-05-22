@@ -9,6 +9,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @post.categories.build(name: "")
+    @post.categories.build(name: "")
   end
 
   def create
@@ -21,4 +23,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content, category_ids:[], categories_attributes: [:name])
   end
+  
 end
